@@ -1,6 +1,6 @@
 # Sistema de Gestão de Vendas
 ![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python Version](https://img.shields.io/badge/Python-3.0+-blue)
 
 ## 📋 Descrição do Projeto
 Sistema de gestão de vendas desenvolvido como trabalho da disciplina de Introdução à Programação Orientada a Objetos. O sistema permite o gerenciamento de vendas, cadastro de taxas de operadoras (maquininhas) e fechamento de caixa.
