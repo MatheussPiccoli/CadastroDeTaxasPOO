@@ -31,7 +31,7 @@ Sistema de gestão de vendas desenvolvido como trabalho da disciplina de Introdu
 - Valor líquido após descontos de taxas
 
 ## 🔧 Requisitos do Sistema
-- Python 3.8 ou superior
+- Python 3.0 ou superior
 
 ## 🤝 Contribuições
 Para contribuir:
