@@ -20,6 +20,15 @@ elif tarde:
 else:
     saudacao = 'Boa noite'
 
+# Entrada do usuário
+nome_do_usuario = input(f'''{saudacao}! Qual o seu nome?
+Digite seu nome: ''').capitalize()
+limpar_tela()
+
+
+
+
+
 
 
 
