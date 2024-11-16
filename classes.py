@@ -1,6 +1,3 @@
-import os
-import datetime
-
 class Operadora:
     def __init__(self, nome, taxa):
         self.nome = nome
@@ -55,35 +52,3 @@ class Caixa:
         for i in range(0, len(self.operadoras)):
             operadoras = self.operadoras[i]
             print(f"{i + 1} - {operadoras.nome}, {operadoras.taxa} % de taxa")
-
-# Função para limpar a tela do terminal em Linux e Windows
-def limpar_tela():
-    if os.name == 'nt':
-        os.system('cls') 
-    else:
-        os.system('clear')
-
-# Saudação por horário
-horario = datetime.datetime.now().hour
-manha = -1 < horario < 12
-tarde = 11 < horario < 18
-noite = 18 < horario < 24
-if manha:
-    saudacao = 'Bom dia'
-elif tarde:
-    saudacao = 'Boa tarde'
-else:
-    saudacao = 'Boa noite'
-
-# Entrada do usuário
-nome_do_usuario = input(f'''{saudacao}! Qual o seu nome?
-Digite seu nome: ''').capitalize()
-limpar_tela()
-
-
-
-
-
-
-
-
