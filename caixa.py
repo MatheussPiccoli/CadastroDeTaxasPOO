@@ -1,21 +1,5 @@
-class Operadora:
-    def __init__(self, nome, taxa):
-        self.nome = nome
-        self.taxa = taxa
-        
-    def __repr__(self):
-        return f'Operadora(nome={self.nome}, taxa={self.taxa}%)'
-
-class Venda:
-    def __init__(self, valor_bruto, operadora):
-        self.valor_bruto = valor_bruto
-        self.operadora = operadora
-        self.taxa = operadora.taxa if operadora else 0
-        self.valor_liquido = self.valor_bruto - (self.valor_bruto) * ((operadora.taxa) / 100)
-        
-    def __repr__(self):
-        return (f"Venda(valor_bruto=R${self.valor_bruto:.2f},"
-                f"taxa={self.taxa}%, valor_liquido=R${self.valor_liquido:.2f})")
+from operadora import Operadora
+from venda import Venda
 
 class Caixa:
     def __init__(self):
@@ -28,7 +12,7 @@ class Caixa:
         return operadora
     
     def registrador_vendas(self, valor_bruto, operadora):
-        venda = Venda(valor_bruto, operadora)
+        venda = Venda(valor_bruto, operadora.nome, operadora.taxa)
         self.vendas.append(venda)
         return venda
     
@@ -52,3 +36,4 @@ class Caixa:
         for i in range(0, len(self.operadoras)):
             operadoras = self.operadoras[i]
             print(f"{i + 1} - {operadoras.nome}, {operadoras.taxa} % de taxa")
+   
