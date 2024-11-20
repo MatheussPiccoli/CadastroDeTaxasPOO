@@ -56,14 +56,14 @@ Selecione uma opção''')
                 contador_de_taxas += 1
                 print(f'Operadora {operadora_nova} cadastrada! Taxa de {taxa_operadora}%')
                 sleep(2)
-                os.system('cls')
+                limpar_tela()
             print('Todas as operadoras foram cadastradas.')
             sleep(1)
-            os.system('cls')
+            limpar_tela()
         else:
             print('Opção inválida.')
             sleep(2)
-            os.system('cls')
+            limpar_tela()
 
 
 
