@@ -80,6 +80,10 @@ nome_do_usuario = input(f'''{saudacao}! Qual o seu nome?
 Digite seu nome: ''').capitalize()
 limpar_tela()
 
+caixa = Caixa()
+pix = "Pix/Dinheiro"
+taxa_pix = 0
+caixa.cadastrar_operadora(pix, taxa_pix)
 
 
 
