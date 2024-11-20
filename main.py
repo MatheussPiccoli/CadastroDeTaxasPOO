@@ -85,6 +85,39 @@ pix = "Pix/Dinheiro"
 taxa_pix = 0
 caixa.cadastrar_operadora(pix, taxa_pix)
 
+#Menu Principal
+while True:
+    menu = input(f''' Bem vindo(a) {nome_do_usuario}!
+[1] Cadastrar taxas
+[2] Incluir nova venda
+[3] Fechar caixa
+Selecione uma opção''')
+    os.system('cls')
+    #cadastro taxas - 1
+    if menu == '1':
+        print("Você selecionou a opção CDASTRA TAXAS")
+        sleep(1)
+        numero_de_operadoras = (input('Digite o número de operadoras que você que cadastrar: '))
+        validar_numero_de_operadoras = numero_de_operadoras.isdigit()
+        if validar_numero_de_operadoras:
+            numero_de_operadoras = int(numero_de_operadoras)
+            contador_de_taxas = 0
+            while contador_de_taxas<numero_de_operadoras:
+                operadora_nova = input(f'Digite o nome da operadora {contador_de_taxas + 1}: ').upper()
+                taxa_operadora = float(input('Digite a porcentagem da taxa (apenas numeros): '))
+                caixa.cadastrar_operadora(operadora_nova, taxa_operadora)
+                contador_de_taxas += 1
+                print(f'Operadora {operadora_nova} cadastrada! Taxa de {taxa_operadora}%')
+                sleep(2)
+                os.system('cls')
+            print('Todas as operadoras foram cadastradas.')
+            sleep(1)
+            os.system('cls')
+        else:
+            print('Opção inválida.')
+            sleep(2)
+            os.system('cls')
+
 
 
 
