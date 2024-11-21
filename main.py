@@ -37,7 +37,10 @@ while True:
     menu = input(f''' Bem vindo(a) {nome_do_usuario}!
 [1] Cadastrar taxas
 [2] Incluir nova venda
-[3] Fechar caixa
+[3]Atualizar taxas
+[4]Excluir operadora
+[5]Excluir venda
+[6]Fechar caixa
 Selecione uma opção''')
     os.system('cls')
     #cadastro taxas - 1
