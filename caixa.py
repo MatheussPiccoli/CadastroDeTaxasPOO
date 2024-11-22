@@ -15,6 +15,24 @@ class Caixa:
         venda = Venda(valor_bruto, operadora.nome, operadora.taxa)
         self.vendas.append(venda)
         return venda
+
+    def atualizar_taxa(self, num_operadora, taxa):
+        self.taxa = taxa
+        operadora_atualizada = self.operadoras[num_operadora - 1]
+        operadora_atualizada.taxa = self.taxa
+        return operadora_atualizada
+
+    def excluir_operadora(self, operadora):
+        self.num_operadora = int(operadora)
+        deleted_operadora = self.operadoras[self.num_operadora - 1]
+        del self.operadoras[self.num_operadora - 1]
+        return deleted_operadora
+    
+    def excluir_venda(self, num_venda):
+        self.num_venda = int(num_venda)
+        deleted_venda = self.vendas[self.num_venda - 1]
+        del self.vendas[self.num_venda - 1]
+        return deleted_venda
     
     def total_bruto(self):
         return sum(venda.valor_bruto for venda in self.vendas)
