@@ -1,5 +1,6 @@
 import os
 import datetime
+import funcoes
 from time import sleep
 from caixa import Caixa
 from funcoes import limpar_tela
@@ -37,15 +38,20 @@ while True:
 [6]Fechar caixa
 Selecione uma opção''')
     os.system('cls')
+
     #cadastro taxas - 1
     if menu == '1':
         print("Você selecionou a opção CADASTRAR TAXAS")
         sleep(1)
-        numero_de_operadoras = (input('Digite o número de operadoras que você que cadastrar: '))
+        numero_de_operadoras = (input('Digite o número de operadoras que você que cadastrar: ("0" para voltar ao menu)'))
         validar_numero_de_operadoras = numero_de_operadoras.isdigit()
         if validar_numero_de_operadoras:
             numero_de_operadoras = int(numero_de_operadoras)
             contador_de_taxas = 0
+            if numero_de_operadoras == 0:
+                print("Voltando ao menu prinicpal")
+                sleep(2)
+                continue
             while contador_de_taxas<numero_de_operadoras:
                 operadora_nova = input(f'Digite o nome da operadora {contador_de_taxas + 1}: ').upper()
                 taxa_operadora = float(input('Digite a porcentagem da taxa (apenas numeros): '))
@@ -57,10 +63,38 @@ Selecione uma opção''')
             print('Todas as operadoras foram cadastradas.')
             sleep(1)
             limpar_tela()
-        else:
-            print('Opção inválida.')
+    
+    #Incluir venda - 2
+    elif menu == 2:
+        print('Você selecionou a opção INCLUIR VENDA')
+        sleep(1)
+        caixa.listar_operadoras()
+        print('Selecione a operadora da venda ("0" para voltar ao menu)')
+        operadora_escolhida = int(len(caixa.operadoras))
+        if operadora_escolhida == 0:
+            print("Voltando ao menu principal")
             sleep(2)
-            limpar_tela()
+            funcoes.limpar_tela()
+            continue
+        operadora_venda = caixa.operadoras[operadora_escolhida - 1]
+        taxa_operadora = operadora_venda.taxa
+        print(f'Você selecionou a operadora {operadora_venda}.')
+        sleep(1)
+        print('Qual é o valor da venda?')
+        valor_bruto_venda = float("Digite o valor da venda: ")
+        nova_venda = caixa.registrador_vendas(valor_bruto_venda, operadora_venda)
+        print(f'Venda de R${valor_bruto_venda} cadastrada!')
+        sleep(1)
+        print(f'Taxa da maquina: {taxa_operadora}%')
+        sleep(1)
+        print(f'Valor líquido: R${nova_venda.valor_liquido:.2f}')
+        sleep(2)
+        funcoes.limpar_tela
+
+    else:
+        print('Opção inválida.')
+        sleep(2)
+        limpar_tela()
 
 
 
