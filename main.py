@@ -65,12 +65,13 @@ Selecione uma opção''')
             limpar_tela()
     
     #Incluir venda - 2
-    elif menu == 2:
+    elif menu == '2':
         print('Você selecionou a opção INCLUIR VENDA')
         sleep(1)
         caixa.listar_operadoras()
         print('Selecione a operadora da venda ("0" para voltar ao menu)')
-        operadora_escolhida = int(len(caixa.operadoras))
+        sleep(1)
+        operadora_escolhida = int(input(caixa.operadoras))
         if operadora_escolhida == 0:
             print("Voltando ao menu principal")
             sleep(2)
@@ -81,7 +82,7 @@ Selecione uma opção''')
         print(f'Você selecionou a operadora {operadora_venda}.')
         sleep(1)
         print('Qual é o valor da venda?')
-        valor_bruto_venda = float("Digite o valor da venda: ")
+        valor_bruto_venda = float(input("Digite o valor da venda: "))
         nova_venda = caixa.registrador_vendas(valor_bruto_venda, operadora_venda)
         print(f'Venda de R${valor_bruto_venda} cadastrada!')
         sleep(1)
@@ -90,6 +91,26 @@ Selecione uma opção''')
         print(f'Valor líquido: R${nova_venda.valor_liquido:.2f}')
         sleep(2)
         funcoes.limpar_tela
+
+    #Atualizar taxa - 3
+    elif menu == '3':
+        print("Você selecionou a opção ATUALIZAR TAXAS")
+        sleep(1)
+        caixa.listar_operadoras()
+        print("Qual operadora você deseja atualizar? ('0' para voltar ao menu)")
+        select = int(input(caixa.operadoras))
+        if select == 0:
+            print("Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        operadora_escolhida = caixa.operadoras[select - 1]
+        print(f"Você selecionou a operadora {operadora_escolhida} ")
+        nova_taxa =  input("Digite a nova taxa da operadora selecionada: ")
+        caixa.atualizar_taxa(select, nova_taxa)
+        print(f"Operadora {operadora_escolhida.nome} atualizada com sucesso! A taxa nova é de {operadora_escolhida.taxa}%")
+        sleep(2)
+        funcoes.limpar_tela()
 
     else:
         print('Opção inválida.')
