@@ -39,7 +39,7 @@ Selecione uma opção''')
     os.system('cls')
     #cadastro taxas - 1
     if menu == '1':
-        print("Você selecionou a opção CDASTRA TAXAS")
+        print("Você selecionou a opção CADASTRAR TAXAS")
         sleep(1)
         numero_de_operadoras = (input('Digite o número de operadoras que você que cadastrar: '))
         validar_numero_de_operadoras = numero_de_operadoras.isdigit()
