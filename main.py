@@ -76,6 +76,10 @@ Selecione uma opção: ''')
     #Atualizar taxa - 3
     elif menu == '3':
         print("Você selecionou a opção ATUALIZAR TAXAS")
+        if len(caixa.operadoras) == 1:
+            print("Não há operadoras cadastradas. Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
         sleep(1)
         caixa.listar_operadoras()
         print("Qual operadora você deseja atualizar? ('0' para voltar ao menu)")
