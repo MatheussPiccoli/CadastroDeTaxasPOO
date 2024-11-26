@@ -36,7 +36,7 @@ while True:
 [4]Excluir operadora
 [5]Excluir venda
 [6]Fechar caixa
-Selecione uma opção''')
+Selecione uma opção: ''')
     funcoes.limpar_tela()
 
     #cadastro taxas - 1
