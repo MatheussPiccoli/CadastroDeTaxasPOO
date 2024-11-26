@@ -1,24 +1,10 @@
-import os
-import datetime
 import funcoes
 from time import sleep
 from caixa import Caixa
-import funcoes
-
-# Saudação por horário
-horario = datetime.datetime.now().hour
-manha = -1 < horario < 12
-tarde = 11 < horario < 18
-noite = 18 < horario < 24
-if manha:
-    saudacao = 'Bom dia'
-elif tarde:
-    saudacao = 'Boa tarde'
-else:
-    saudacao = 'Boa noite'
+import sys
 
 # Entrada do usuário
-nome_do_usuario = input(f'''{saudacao}! Qual o seu nome?
+nome_do_usuario = input(f'''{funcoes.saudacao_horario()}! Qual o seu nome?
 Digite seu nome: ''').capitalize()
 funcoes.limpar_tela()
 
@@ -43,26 +29,21 @@ Selecione uma opção: ''')
     if menu == '1':
         print("Você selecionou a opção CADASTRAR TAXAS")
         sleep(1)
-        numero_de_operadoras = (input('Digite o número de operadoras que você que cadastrar: ("0" para voltar ao menu)'))
-        validar_numero_de_operadoras = numero_de_operadoras.isdigit()
-        if validar_numero_de_operadoras:
-            numero_de_operadoras = int(numero_de_operadoras)
-            contador_de_taxas = 0
-            if numero_de_operadoras == 0:
-                print("Voltando ao menu prinicpal")
-                sleep(2)
-                continue
-            while contador_de_taxas<numero_de_operadoras:
-                operadora_nova = input(f'Digite o nome da operadora {contador_de_taxas + 1}: ').upper()
-                taxa_operadora = float(input('Digite a porcentagem da taxa (apenas numeros): '))
-                caixa.cadastrar_operadora(operadora_nova, taxa_operadora)
-                contador_de_taxas += 1
-                print(f'Operadora {operadora_nova} cadastrada! Taxa de {taxa_operadora}%')
-                sleep(2)
-                funcoes.limpar_tela()
-            print('Todas as operadoras foram cadastradas.')
-            sleep(1)
-            funcoes.limpar_tela()
+        print('Escolha o número de operadoras que você quer cadastrar ("0" para voltar ao menu)')
+        n_de_operadoras = funcoes.obter_inteiro()
+        if n_de_operadoras == 0:
+            print("Voltando ao menu principal")
+            sleep(2)
+            continue
+        for i in range(n_de_operadoras):
+            operadora_nova = input(f'Digite o nome da operadora {i + 1}: ').upper()
+            print('Qual seria a porcentagem da taxa?')
+            taxa_operadora = funcoes.obter_real()
+            caixa.cadastrar_operadora(operadora_nova, taxa_operadora)
+            print(f'Operadora {operadora_nova} cadastrada! Taxa de {taxa_operadora}%')
+        print('Todas as operadoras foram cadastradas.') 
+        sleep(1)
+        funcoes.limpar_tela()
     
     #Incluir venda - 2
     elif menu == '2':
@@ -71,7 +52,7 @@ Selecione uma opção: ''')
         caixa.listar_operadoras()
         print('Selecione a operadora da venda ("0" para voltar ao menu)')
         sleep(1)
-        operadora_escolhida = int(input(caixa.operadoras))
+        operadora_escolhida = funcoes.obter_inteiro(len(caixa.operadoras))
         if operadora_escolhida == 0:
             print("Voltando ao menu principal")
             sleep(2)
@@ -82,14 +63,14 @@ Selecione uma opção: ''')
         print(f'Você selecionou a operadora {operadora_venda}.')
         sleep(1)
         print('Qual é o valor da venda?')
-        valor_bruto_venda = float(input("Digite o valor da venda: "))
+        valor_bruto_venda = funcoes.obter_real(sys.float_info.max)
         nova_venda = caixa.registrador_vendas(valor_bruto_venda, operadora_venda)
         print(f'Venda de R${valor_bruto_venda} cadastrada!')
         sleep(1)
         print(f'Taxa da maquina: {taxa_operadora}%')
         sleep(1)
         print(f'Valor líquido: R${nova_venda.valor_liquido:.2f}')
-        sleep(2)
+        sleep(3)
         funcoes.limpar_tela
 
     #Atualizar taxa - 3
@@ -98,7 +79,7 @@ Selecione uma opção: ''')
         sleep(1)
         caixa.listar_operadoras()
         print("Qual operadora você deseja atualizar? ('0' para voltar ao menu)")
-        select = int(input(caixa.operadoras))
+        select = funcoes.obter_inteiro(len(caixa.operadoras) - 1)
         if select == 0:
             print("Voltando ao menu principal")
             sleep(2)
