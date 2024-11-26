@@ -3,7 +3,7 @@ import datetime
 import funcoes
 from time import sleep
 from caixa import Caixa
-from funcoes import limpar_tela
+import funcoes
 
 # Saudação por horário
 horario = datetime.datetime.now().hour
@@ -20,7 +20,7 @@ else:
 # Entrada do usuário
 nome_do_usuario = input(f'''{saudacao}! Qual o seu nome?
 Digite seu nome: ''').capitalize()
-limpar_tela()
+funcoes.limpar_tela()
 
 caixa = Caixa()
 pix = "Pix/Dinheiro"
@@ -37,7 +37,7 @@ while True:
 [5]Excluir venda
 [6]Fechar caixa
 Selecione uma opção''')
-    os.system('cls')
+    funcoes.limpar_tela()
 
     #cadastro taxas - 1
     if menu == '1':
@@ -59,10 +59,10 @@ Selecione uma opção''')
                 contador_de_taxas += 1
                 print(f'Operadora {operadora_nova} cadastrada! Taxa de {taxa_operadora}%')
                 sleep(2)
-                limpar_tela()
+                funcoes.limpar_tela()
             print('Todas as operadoras foram cadastradas.')
             sleep(1)
-            limpar_tela()
+            funcoes.limpar_tela()
     
     #Incluir venda - 2
     elif menu == '2':
