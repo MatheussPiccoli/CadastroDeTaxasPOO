@@ -102,6 +102,50 @@ Selecione uma opção: ''')
         sleep(2)
         limpar_tela()
 
+    #Excluir operadora - 4
+    elif menu == '4':
+        print("Você selecionou a opção EXCLUIR OPERADORA")
+        sleep(1)
+        if len(caixa.operadoras) == 1:
+            print("Não há operadoras cadastradas. Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        caixa.listar_operadoras(1)
+        print("Escolha o número da operadora a ser excluída ('0' para voltar ao menu)")
+        delete_operadora = funcoes.obter_inteiro(len(caixa.operadoras))
+        if delete_operadora == 0:
+            print("Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        operadora_excluida = caixa.excluir_operadora(delete_operadora)
+        print(f"Operadora {operadora_excluida.nome} excluída com sucesso!")
+        sleep(2)
+        funcoes.limpar_tela()
+
+    # Excluir Venda - 5
+    elif menu == '5':
+        print("Você selecionou a opção EXCLUIR VENDA")
+        sleep(1)
+        if len(caixa.vendas) == 0:
+            print("Não há nenhuma venda cadastradas. Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        caixa.listar_vendas()
+        print("Escolha o número da venda a ser excluída ('0' para voltar ao menu)")
+        delete_venda = funcoes.obter_inteiro(len(caixa.vendas))
+        if delete_venda == 0:
+            print("Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        venda_excluida = caixa.excluir_venda(delete_venda)
+        print(f"Venda {delete_venda} excluída com sucesso!")
+        sleep(2)
+        funcoes.limpar_tela()
+
 
 
 
