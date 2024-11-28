@@ -146,6 +146,24 @@ Selecione uma opção: ''')
         sleep(2)
         funcoes.limpar_tela()
 
+    # Fechar caixa - 6
+    elif menu == '6':
+        print("=-" * 30)
+        print("\n")
+        print("LISTA DE VENDAS\n")
+        print("=-" * 30)
+        caixa.listar_vendas()
+        print(f'TOTAL BRUTO: R${caixa.total_bruto():.2f}')
+        print(f'LÍQUIDO À RECEBER: R${caixa.total_liquido():.2f}')
+        input('Pressione enter para sair: ')
+        funcoes.limpar_tela()
+        break
+    
+    
+    else:
+        print("Comando Inválido! por favor , digite um número inteiro entre 1 e 6")
+        sleep(2)
+
 
 
 
