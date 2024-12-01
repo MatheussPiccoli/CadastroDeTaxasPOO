@@ -81,6 +81,7 @@ Selecione uma opção: ''')
             print("Não há operadoras cadastradas. Voltando ao menu principal")
             sleep(2)
             funcoes.limpar_tela()
+            continue
         sleep(1)
         caixa.listar_operadoras()
         print("Qual operadora você deseja atualizar? ('0' para voltar ao menu)")
