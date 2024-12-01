@@ -13,8 +13,9 @@ pix = "Pix/Dinheiro"
 taxa_pix = 0
 caixa.cadastrar_operadora(pix, taxa_pix)
 
+menu = '0'
 #Menu Principal
-while True:
+while menu != '6':
     menu = input(f''' Bem vindo(a) {nome_do_usuario}!
 [1] Cadastrar taxas
 [2] Incluir nova venda
