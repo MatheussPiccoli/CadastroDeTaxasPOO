@@ -11,6 +11,18 @@ Sistema de gestão de vendas desenvolvido como trabalho da disciplina de Introdu
 - Matias Drews
 - Pedro Marques
 
+## O projeto
+```
+projeto/
+├── main.py           # Interface gráfica completa usando Tkinter
+├── caixa.py          # Classe central que gerencia todas as operações do sistema
+├── venda.py          # Define a classe Venda e seus cálculos (valor bruto, líquido, taxas)
+├── operadora.py      # Define a classe base Operadora (nome e taxa)
+├── chargeback.py     # Gerencia os estornos/cancelamentos de vendas
+├── funcoes.py        # Funções utilitárias (validações de entrada, limpeza)
+└── exportar_xml.py   # Gera o relatório final em formato XML 
+```
+
 ## 🛠️ Funcionalidades
 
 ### 1. Gestão de Operadoras
