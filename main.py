@@ -16,13 +16,13 @@ caixa.cadastrar_operadora(pix, taxa_pix)
 menu = '0'
 #Menu Principal
 while menu != '6':
-    menu = input(f''' Bem vindo(a) {nome_do_usuario}!
+    menu = input(f'''Bem vindo(a) {nome_do_usuario}!
 [1] Cadastrar taxas
 [2] Incluir nova venda
-[3]Atualizar taxas
-[4]Excluir operadora
-[5]Excluir venda
-[6]Fechar caixa
+[3] Atualizar taxas
+[4] Excluir operadora
+[5] Excluir venda
+[6] Fechar caixa
 Selecione uma opção: ''')
     funcoes.limpar_tela()
 
@@ -61,7 +61,7 @@ Selecione uma opção: ''')
             continue
         operadora_venda = caixa.operadoras[operadora_escolhida - 1]
         taxa_operadora = operadora_venda.taxa
-        print(f'Você selecionou a operadora {operadora_venda}.')
+        print(f'Você selecionou a operadora {operadora_escolhida}.')
         sleep(1)
         print('Qual é o valor da venda?')
         valor_bruto_venda = funcoes.obter_real(sys.float_info.max)
@@ -160,9 +160,3 @@ Selecione uma opção: ''')
         print("Comando Inválido! por favor , digite um número inteiro entre 1 e 6")
         sleep(2)
         funcoes.limpar_tela()
-
-
-
-
-
-
