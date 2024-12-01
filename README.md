@@ -90,40 +90,6 @@ projeto/
 * Histórico completo de operações
 * Relatórios detalhados de movimentação
 
-## 🚀 Instalação e Uso
-
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/sistema-vendas
-
-# Entre no diretório
-cd sistema-vendas
-
-# Execute o programa
-python main.py
-```
-
-## 🔧 Requisitos
-
-* Python 3.x
-* Tkinter (geralmente já vem com Python)
-* Sistema operacional: Windows, Linux ou macOS
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 🔧 Requisitos do Sistema
-- Python 3.0 ou superior
-
-## 🤝 Contribuições
-Para contribuir:
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
 ## Requisitos Atendidos
 
 ### 1. CRUD (Create, Read, Update, Delete)
