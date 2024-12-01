@@ -3,6 +3,8 @@ from time import sleep
 from caixa import Caixa
 import sys
 
+from venda import Venda
+
 # Entrada do usuário
 nome_do_usuario = input(f'''{funcoes.saudacao_horario()}! Qual o seu nome?
 Digite seu nome: ''').capitalize()
@@ -15,14 +17,15 @@ caixa.cadastrar_operadora(pix, taxa_pix)
 
 menu = '0'
 #Menu Principal
-while menu != '6':
+while menu != '7':
     menu = input(f'''Bem vindo(a) {nome_do_usuario}!
 [1] Cadastrar taxas
 [2] Incluir nova venda
 [3] Atualizar taxas
 [4] Excluir operadora
 [5] Excluir venda
-[6] Fechar caixa
+[6] Registrar Chargeback
+[7] Fechar caixa
 Selecione uma opção: ''')
     funcoes.limpar_tela()
 
@@ -72,7 +75,7 @@ Selecione uma opção: ''')
         sleep(1)
         print(f'Valor líquido: R${nova_venda.valor_liquido:.2f}')
         sleep(3)
-        funcoes.limpar_tela
+        funcoes.limpar_tela()
 
     #Atualizar taxa - 3
     elif menu == '3':
@@ -145,8 +148,38 @@ Selecione uma opção: ''')
         sleep(2)
         funcoes.limpar_tela()
     
-    # Fechar caixa - 6
+    # Registrar Chargeback - 6
+    # Registrar Chargeback - 6
     elif menu == '6':
+        print("Você selecionou a opção REGISTRAR CHARGEBACK")
+        sleep(1)
+
+        print("Digite o valor da venda cancelada:")
+        valor_venda = funcoes.obter_real(sys.float_info.max)
+
+        print("Digite o NSU (número do comprovante) da venda:")
+        nsu = input("NSU: ")
+
+        print("Digite a data da venda (DD/MM/AAAA):")
+        data_venda = input("Data: ")
+
+        print("Digite o motivo do chargeback:")
+        motivo = input("Motivo: ").capitalize()
+        
+        # Criamos uma venda temporária para passar ao chargeback
+        venda = Venda(valor_venda, "Cancelamento", 0)
+        venda.nsu = nsu
+        venda.data = data_venda
+        
+        chargeback = caixa.registrar_chargeback(venda, motivo, data_venda)
+        
+        print("\nChargeback registrado com sucesso!")
+        print(chargeback)
+        sleep(3)
+        funcoes.limpar_tela()
+    
+    # Fechar caixa - 7
+    elif menu == '7':
         print("=-" * 30)
         print("\n")
         print("LISTA DE VENDAS\n")
@@ -154,6 +187,10 @@ Selecione uma opção: ''')
         caixa.listar_vendas()
         print(f'TOTAL BRUTO: R${caixa.total_bruto():.2f}')
         print(f'LÍQUIDO À RECEBER: R${caixa.total_liquido():.2f}')
+        print("\nLISTA DE CHARGEBACKS")
+        print("=-" * 30)
+        caixa.listar_chargebacks()
+        print(f'TOTAL CHARGEBACKS: R${caixa.total_chargebacks():.2f}')
         input('Pressione enter para sair: ')
         funcoes.limpar_tela()
         break

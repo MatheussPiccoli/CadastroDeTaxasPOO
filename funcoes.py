@@ -1,5 +1,6 @@
 import os
 import datetime
+
 # Função para limpar a tela do terminal em Linux e Windows
 def limpar_tela():
     if os.name == 'nt':
@@ -44,3 +45,4 @@ def obter_real(limite=100):
         
         except ValueError:
             print("Entrada inválida. A entrada não é um Número real.")
+
