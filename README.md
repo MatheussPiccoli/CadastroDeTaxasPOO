@@ -13,7 +13,7 @@ Sistema de gestão de vendas desenvolvido como trabalho da disciplina de Introdu
 
 ## O projeto
 ```
-projeto/
+CadastroDeTaxasPOO/
 ├── main.py           # Interface gráfica completa usando Tkinter
 ├── caixa.py          # Classe central que gerencia todas as operações do sistema
 ├── venda.py          # Define a classe Venda e seus cálculos (valor bruto, líquido, taxas)
