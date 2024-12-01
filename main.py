@@ -191,6 +191,11 @@ Selecione uma opção: ''')
         print("=-" * 30)
         caixa.listar_chargebacks()
         print(f'TOTAL CHARGEBACKS: R${caixa.total_chargebacks():.2f}')
+
+        from exportar_xml import exportar_para_xml
+        nome_arquivo = exportar_para_xml(caixa)
+        print(f"\nRelatório XML gerado com sucesso: {nome_arquivo}")
+        
         input('Pressione enter para sair: ')
         funcoes.limpar_tela()
         break
