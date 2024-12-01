@@ -25,22 +25,93 @@ projeto/
 
 ## 🛠️ Funcionalidades
 
-### 1. Gestão de Operadoras
-- Cadastro de novas operadoras de cartão
-- Definição de taxas por operadora
-- Atualização de taxas existentes
+### 1. Gestão de Operadoras 💳
+* Cadastro de novas operadoras de pagamento (cartão, pix, etc.)
+* Configuração de taxas personalizadas por operadora
+* Atualização e exclusão de operadoras existentes
+* Operadora Pix/Dinheiro padrão com taxa 0%
+* Visualização em tabela de todas as operadoras cadastradas
 
-### 2. Gestão de Vendas
-- Registro de novas vendas
-- Seleção de método de pagamento
-- Cálculo automático de taxas baseado na operadora
-- Histórico de vendas
+### 2. Gestão de Vendas 📊
+* Registro de vendas com interface intuitiva
+* Seleção simplificada de operadora via menu
+* Cálculo automático do valor líquido baseado nas taxas
+* Histórico completo de vendas em formato tabular
+* Exclusão de vendas com confirmação de segurança
+* Visualização de valores brutos e líquidos por venda
 
-### 3. Fechamento de Caixa
-- Totalização das vendas do dia
-- Cálculo de taxas por operadora
-- Relatório detalhado de vendas
-- Valor líquido após descontos de taxas
+### 3. Gestão de Chargebacks (Estornos) ↩️
+* Registro detalhado de estornos/cancelamentos
+* Histórico completo de chargebacks realizados
+* Impacto automático nos totais do caixa
+
+### 4. Relatórios e Exportação 📑
+* Visualização em tempo real dos totais:
+  - Valor bruto total das vendas
+  - Valor líquido após taxas
+  - Total de chargebacks
+* Exportação completa para XML contendo:
+  - Resumo financeiro
+  - Lista de operadoras e taxas
+  - Detalhamento de vendas
+  - Registro de chargebacks
+
+### 5. Interface Gráfica 🖥️
+* Design moderno e intuitivo
+* Sistema organizado em abas para fácil navegação:
+  - Aba de Operadoras
+  - Aba de Vendas
+  - Aba de Chargebacks
+  - Aba de Relatórios
+* Validações em tempo real dos dados inseridos
+* Mensagens de feedback para todas as operações
+* Confirmações de segurança para exclusões
+  
+### 6. Controles de Segurança 🔒
+* Validação de valores numéricos
+* Proteção contra exclusão da operadora Pix/Dinheiro
+* Confirmação para ações críticas
+* Validação de campos obrigatórios
+* Verificação de dados em tempo real
+* Mensagens de erro claras e informativas
+
+### 7. Recursos Adicionais ⚡
+* Cálculos automáticos de valores e taxas
+* Atualização em tempo real dos totalizadores
+* Persistência de dados durante a sessão
+* Possibilidade de desfazer operações
+* Suporte a múltiplas operadoras
+* Interface responsiva e adaptável
+
+### 8. Armazenamento e Dados 💾
+* Gestão de listas de operadoras, vendas e chargebacks
+* Cálculos automáticos de totais
+* Exportação de dados em formato XML
+* Histórico completo de operações
+* Relatórios detalhados de movimentação
+
+## 🚀 Instalação e Uso
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/sistema-vendas
+
+# Entre no diretório
+cd sistema-vendas
+
+# Execute o programa
+python main.py
+```
+
+## 🔧 Requisitos
+
+* Python 3.x
+* Tkinter (geralmente já vem com Python)
+* Sistema operacional: Windows, Linux ou macOS
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 🔧 Requisitos do Sistema
 - Python 3.0 ou superior
