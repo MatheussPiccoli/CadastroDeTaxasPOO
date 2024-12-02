@@ -96,7 +96,7 @@ Selecione uma opção: ''')
             funcoes.limpar_tela()
             continue
         operadora_escolhida = caixa.operadoras[select - 1]
-        print(f"Voce selecionou a operadora {operadora_escolhida} ")
+        print(f"Voce selecionou a operadora {operadora_escolhida.nome} ")
         print("Digite a nova taxa da operadora selecionada")
         nova_taxa = funcoes.obter_real()
         caixa.atualizar_taxa(select, nova_taxa)
