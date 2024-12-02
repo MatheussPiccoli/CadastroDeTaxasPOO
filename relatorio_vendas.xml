@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<relatorio_vendas data_geracao="01/12/2024 23:45:31">
+    <resumo>
+        <total_bruto>0.00</total_bruto>
+        <total_liquido>0.00</total_liquido>
+        <total_chargebacks>100.00</total_chargebacks>
+    </resumo>
+    <operadoras>
+        <operadora id="1">
+            <nome>Pix/Dinheiro</nome>
+            <taxa>0.00</taxa>
+        </operadora>
+    </operadoras>
+    <vendas/>
+    <chargebacks>
+        <chargeback id="1">
+            <valor>100.00</valor>
+            <nsu>asdasdad</nsu>
+            <motivo>Sim[</motivo>
+            <data>01/12/2024</data>
+        </chargeback>
+    </chargebacks>
+</relatorio_vendas>

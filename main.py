@@ -115,7 +115,7 @@ Selecione uma opção: ''')
             continue
         caixa.listar_operadoras(1)
         print("Escolha o número da operadora a ser excluída ('0' para voltar ao menu)")
-        delete_operadora = funcoes.obter_inteiro(len(caixa.operadoras))
+        delete_operadora = funcoes.obter_inteiro(len(caixa.operadoras) - 1)
         if delete_operadora == 0:
             print("Voltando ao menu principal")
             sleep(2)
@@ -149,14 +149,19 @@ Selecione uma opção: ''')
         funcoes.limpar_tela()
     
     # Registrar Chargeback - 6
-    # Registrar Chargeback - 6
+    
     elif menu == '6':
         print("Você selecionou a opção REGISTRAR CHARGEBACK")
         sleep(1)
 
-        print("Digite o valor da venda cancelada:")
+        print("Qual o valor da venda cancelada? (Digite 0 para voltar ao menu)")
         valor_venda = funcoes.obter_real(sys.float_info.max)
-
+        if valor_venda == 0:
+            print("Voltando ao menu principal")
+            sleep(2)
+            funcoes.limpar_tela()
+            continue
+        
         print("Digite o NSU (número do comprovante) da venda:")
         nsu = input("NSU: ")
 

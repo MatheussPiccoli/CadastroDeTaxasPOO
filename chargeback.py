@@ -8,7 +8,10 @@ class Chargeback(Operadora):
         self.valor = venda_original.valor_bruto
         self.nsu = venda_original.nsu if hasattr(venda_original, 'nsu') else None
         self.motivo = motivo
-        self.data = datetime.strptime(data, '%d/%m/%Y') if data else datetime.now()
+        try:
+            self.data = datetime.strptime(data, '%d/%m/%Y') if data else datetime.now()
+        except ValueError:
+            self.data = datetime.now()
 
     def __str__(self):
         return (f"Chargeback - Valor: R${self.valor:.2f}, "

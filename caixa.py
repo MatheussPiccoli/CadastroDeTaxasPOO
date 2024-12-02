@@ -9,7 +9,7 @@ class Caixa:
     
     def cadastrar_operadora(self, nome, taxa):
         operadora = Operadora(nome, taxa)
-        self.operadoras.append(operadora)
+        self.operadoras.insert(0, operadora)
         return operadora
     
     def registrador_vendas(self, valor_bruto, operadora):
@@ -66,9 +66,9 @@ class Caixa:
             print(f"Valor Líquido: R$ {venda.valor_liquido:.2f}")
             print("=-" * 30)
     
-    def listar_operadoras(self):
+    def listar_operadoras(self, fim=0):
         print("Operadoras cadastradas:")
-        for i in range(0, len(self.operadoras)):
+        for i in range(len(self.operadoras) - fim):
             operadoras = self.operadoras[i]
             print(f"{i + 1} - {operadoras.nome}, {operadoras.taxa} % de taxa")
    
