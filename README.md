@@ -158,10 +158,12 @@ A classe `Caixa` mantém uma relação de composição com `Operadora`, `Venda` 
 
 ```python
 class Caixa:
-    def __init__(self):
-        self.operadoras = []    # Composição com Operadora
-        self.vendas = []        # Composição com Venda
-        self.chargebacks = []   # Composição com Chargeback
+    ...
+    
+    def cadastrar_operadora(self, nome, taxa):
+        operadora = Operadora(nome, taxa)
+        self.operadoras.append(operadora)
+        return operadora
 ```
 
 ### 4. Estruturas de Seleção/Repetição
